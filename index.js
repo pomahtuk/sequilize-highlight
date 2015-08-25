@@ -13,7 +13,7 @@ var exports = function highliteSQl(text) {
     'ON', 'OPTION', 'OR', 'ORDER', 'OUT', 'OUTER', 'REPLACE', 'TINYINT',
     'RIGHT', 'SELECT', 'SET', 'TABLE', 'THEN', 'TO', 'TRUE', 'UPDATE',
     'VALUES', 'WHEN', 'WHERE', 'UNSIGNED', 'CASCADE', 'UNIQUE', 'DEFAULT',
-    'ENGINE', 'TEXT', 'auto_increment', 'InnoDB'
+    'ENGINE', 'TEXT', 'auto_increment', 'SHOW', 'INDEX'
   ],
     len = keyWords.length,
     i;

@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Colors for sequilize console output. Supporting basic MySQL syntax.",
   "main": "index.js",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/pomahtuk/sequilize-highlight.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,8 +14,9 @@
     "sql",
     "syntax",
     "sequilize",
-    "logger"
+    "logger",
+    "highlight"
   ],
-  "author": "pman",
+  "author": "pomahtuk",
   "license": "MIT"
 }
