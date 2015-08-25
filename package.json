@@ -1,0 +1,17 @@
+{
+  "name": "sequelize-log-syntax-colors",
+  "version": "1.0.0",
+  "description": "Colors for sequilize console output. Supporting basic MySQL syntax.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sql",
+    "syntax",
+    "sequilize",
+    "logger"
+  ],
+  "author": "pman",
+  "license": "MIT"
+}
