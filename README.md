@@ -11,6 +11,12 @@ So with a magic of regular expressions and one bier basic MySQL syntax highlight
 
 #### How to use?
 
+- Install via npm
+```bash
+npm install sequelize-log-syntax-colors
+```
+
+- Use in code
 ```javascript
 // require logger
 var sequelizeLogger = require('sequlize-log-highlite');
