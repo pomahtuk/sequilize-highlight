@@ -59,7 +59,7 @@ var exports = function highliteSQl(text) {
     newText = newText.replace(regEx, magenta + keyWords[i] + clearStyle);
   }
 
-  console.log('Executing (default):', newText);
+  return newText;
 
 };
 
