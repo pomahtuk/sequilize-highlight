@@ -19,7 +19,7 @@ npm install sequelize-log-syntax-colors
 - Use in code
 ```javascript
 // require logger
-var sequelizeLogger = require('sequlize-log-highlite');
+var sequelizeLogger = require('sequelize-log-syntax-colors');
 // require config
 var config = require(path.join(__dirname, '/../config/config.json'))[env];
 
@@ -27,7 +27,41 @@ var config = require(path.join(__dirname, '/../config/config.json'))[env];
 config.logging = sequelizeLogger;
 
 // initialize sequlize
-const sequelize = new Sequelize(config.database, config.username, config.password, config);
+const sequelize = new Sequelize(config.database, config.username, config.password, assign(config, {
+  logging : function(text) { console.log(colors(text)); }
+}));
+
+// OR use it with Winston
+
+const log = require('./my-loggers');
+const sequelize = new Sequelize(config.database, config.username, config.password, assign(config, {
+  logging : log.database.info
+}));
+
+// setting up winstons loggers
+const winston = require('winston');
+const common = require('../../node_modules/winston/lib/winston/common');
+const colors = require('sequelize-log-syntax-colors');
+
+winston.loggers.add('database', {
+  console: {
+    level: 'info',
+    colorize: true,
+    label: 'sequelize',
+    formatter: function(obj) {
+      var colorfull = {
+        colorize: true,
+        label: obj.label,
+        level: obj.level,
+        message: colors(obj.message)
+      }
+      return common.log(colorfull);
+    }
+  },
+  ...
+});
+
+module.exports = winston.loggers.loggers;
 
 ```
 
