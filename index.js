@@ -2,7 +2,13 @@
 
 'use strict';
 
-var exports = function highliteSQl(text) {
+function highlightSQL(text, options) {
+  if(typeof options === 'undefined'){
+    options = {
+      capitalizeKeywords:false
+    }
+  }
+
   var keyWords = [
     'PRAGMA', 'CREATE', 'EXISTS', 'INTEGER', 'PRIMARY', 'VARCHAR',
     'DATETIME', 'NULL', 'REFERENCES', 'AND', 'AS', 'ASC', 'INDEX_LIST',
@@ -56,11 +62,15 @@ var exports = function highliteSQl(text) {
   for (i = 0; i < keyWords.length; i += 1) {
     //regex pattern will be formulated based on the array values surrounded by word boundaries. since the replace function does not accept a string as a regex pattern, we will use a regex object this time
     regEx = new RegExp('\\b' + keyWords[i] + '\\b', 'g');
-    newText = newText.replace(regEx, magenta + keyWords[i] + clearStyle);
+    var keyWord = keyWords[i]
+    if(options.capitalizeKeywords){
+      keyWord = keyWords[i].toUpperCase()
+    }
+    newText = newText.replace(regEx, magenta + keyWord + clearStyle);
   }
 
   return newText;
 
 };
 
-module.exports = exports;
+module.exports = highlightSQL;
