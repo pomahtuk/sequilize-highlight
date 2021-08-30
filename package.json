@@ -11,7 +11,7 @@
     "lint": "eslint ./src --ext .ts",
     "build": "npm run lint && npx tsc",
     "pre-publish": "npm run test && npm run build",
-    "test": "jest"
+    "test": "FORCE_COLOR=1 jest"
   },
   "keywords": [
     "sql",
