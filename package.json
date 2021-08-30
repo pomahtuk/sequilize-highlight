@@ -1,6 +1,6 @@
 {
   "name": "sequelize-log-syntax-colors",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Colors for sequilize console output. Supporting basic MySQL syntax.",
   "main": "index.js",
   "repository": {
