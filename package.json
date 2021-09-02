@@ -9,8 +9,10 @@
   },
   "scripts": {
     "lint": "eslint ./src --ext .ts",
-    "build": "npm run lint && npx tsc",
-    "pre-publish": "npm run test && npm run build",
+    "build": "npm run lint && rm -Rf ./dist && npx tsc",
+    "preversion": "npm run test",
+    "version": "npm run build",
+    "postversion": "git push && git push --tags && rm -rf build/temp",
     "test": "FORCE_COLOR=1 jest"
   },
   "keywords": [

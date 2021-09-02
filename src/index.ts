@@ -2,13 +2,16 @@ import chalk from "chalk";
 
 import { keywordsMap, regexMap, extractKeywords } from "./keywords";
 
-export type HighlightSQLOptions = {
-  capitalizeKeywords?: boolean;
-};
+//eslint-disable-next-line
+namespace highlightSQL {
+  export interface HighlightSQLOptions {
+    capitalizeKeywords?: boolean;
+  }
+}
 
-export default function highlightSQL(
+function highlightSQL(
   text: string,
-  { capitalizeKeywords = false }: HighlightSQLOptions = {}
+  { capitalizeKeywords = false }: highlightSQL.HighlightSQLOptions = {}
 ): string {
   // just store original
   // to  compare for
@@ -49,3 +52,5 @@ export default function highlightSQL(
 
   return newText;
 }
+
+export = highlightSQL;
