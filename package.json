@@ -12,7 +12,7 @@
     "build": "npm run lint && rm -Rf ./dist && npx tsc",
     "preversion": "npm run test",
     "version": "npm run build",
-    "postversion": "git push && git push --tags && rm -rf build/temp",
+    "postversion": "git push && git push --tags",
     "test": "FORCE_COLOR=1 jest"
   },
   "keywords": [
