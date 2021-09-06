@@ -1,6 +1,7 @@
 ## Sequilize SQL syntax highlight
 
 #### Whats it all about?
+
 Default sequelize logger is simply really hard to read and understand:
 
 ![alt tag](https://habrastorage.org/files/b08/d52/48d/b08d5248d17b414eb1d1c9cbcca4099e.png)
@@ -12,11 +13,13 @@ So with a magic of regular expressions and one bier basic MySQL syntax highlight
 #### How to use?
 
 - Install via npm
+
 ```bash
 npm install sequelize-log-syntax-colors
 ```
 
 - Use in code
+
 ```javascript
 // require logger
 var sequelizeLogger = require('sequelize-log-syntax-colors');

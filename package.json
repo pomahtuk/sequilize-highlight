@@ -1,14 +1,19 @@
 {
   "name": "sequelize-log-syntax-colors",
-  "version": "2.1.0",
+  "version": "2.1.4-0",
   "description": "Colors for sequilize console output. Supporting basic MySQL syntax.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/pomahtuk/sequilize-highlight.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "lint": "eslint ./src --ext .ts",
+    "build": "npm run lint && rm -Rf ./dist && npx tsc",
+    "preversion": "npm run test",
+    "version": "npm run build",
+    "postversion": "git push && git push --tags",
+    "test": "FORCE_COLOR=1 jest"
   },
   "keywords": [
     "sql",
@@ -17,6 +22,22 @@
     "logger",
     "highlight"
   ],
+  "files": [
+    "dist"
+  ],
   "author": "pomahtuk",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "eslint": "^7.32.0",
+    "jest": "^27.1.0",
+    "prettier": "2.3.2",
+    "ts-jest": "^27.0.5",
+    "typescript": "^4.4.2"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
 }
